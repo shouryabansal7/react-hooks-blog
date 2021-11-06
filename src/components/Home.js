@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { firestore } from '../firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 function Home() {
   const [posts, setPosts] = useState([]);
@@ -26,7 +27,7 @@ function Home() {
 
   return (
     <div className="home">
-      <h1>Tech Blog</h1>
+      <h1 style={styles.heading}>Tech Blog</h1>
       <div id="blog-by">Shourya Bansal</div>
 
       {posts.map((post, index) => (
@@ -43,3 +44,9 @@ function Home() {
 }
 
 export default Home;
+const styles = {
+  heading: {
+    marginTop: 30,
+    fontSize: 56,
+  },
+};
